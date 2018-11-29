@@ -1,4 +1,4 @@
-import pprint,sys, csv, os
+import sys, csv, os
 
 import pymongo
 from pymongo import errors
@@ -31,9 +31,6 @@ def csv_to_mongodb(path, url):
             except Exception:
                 print("Fail: Unknown Mongodb Error")
                 return False
-
-    r = col.count()
-    print(r)
 
     return True
 
