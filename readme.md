@@ -55,7 +55,7 @@ CSV parser would read CVS file line by line (skipping header) and would write th
 ### Instructions
 Write few sentences about potential performance issues of your solution and describe how you would solve those in future. No need to implement these optimizations now - just write down where problems could be and how you would fix them (general description no need for very low level details).
 
-###Task 1:
+### Task 1:
 There are many different ways to handle the process of creating csv files, I used pandas as a tool to help. However, to handle this small amount of data, we can use the basic tool such as csv or others may increase the performance.
 
 I seperated the process of generate names and generate ages as this can handel different types of data. However, this led to mutiple manipulate with the list, if doing it together, the performance will be better.
@@ -63,7 +63,7 @@ I seperated the process of generate names and generate ages as this can handel d
 Other potential performance issues may include the way I create the names.
 
 
-###Task 2:
+### Task 2:
 IO takes time. Since the instrctions told to do this line by line, I saved the data to MongoDB line by line, but saving it together should perform better. 
 
 Pymongo need a long time to raise an error if the connection is wrong. We can use regex match the given MongoDB Connection String first to see if it is in the right form. If it's not in the correct form, we can assert it will not build the connection.
