@@ -2,7 +2,13 @@ import os, subprocess
 
 
 def check_output(output, argv, file_name):
-    # print("c")
+    """
+   check if the csv generated correctly
+
+   :param output: program exit state
+   :param argv: bash argv
+   :param file_name: saved csv file name
+   """
     if output == 0:
         with open(os.path.join(argv[2], file_name)) as f:
             try:
@@ -19,26 +25,33 @@ def check_output(output, argv, file_name):
         try:
             assert output == 1
         except:
-            print("Test Fail: Wrong argv Did not exit")
+            print("Test Fail: Wrong argv Which Should Exit")
 
 
 def teardown(argv, file_name):
-    # print("t")
+    """
+    delete test file after tested
+
+    :param argv: bash argv
+    :param file_name: file to be deleted
+    """
     file = os.path.join(argv[2], file_name)
     os.remove(file)
     print("Removing Test Generated File.")
 
 
 if __name__ == "__main__":
+    run_file = "csv_generator.py"
     file_name = 'genesys.csv'
-    argvs = [["csv_generator.py", "1", os.getcwd()],
-             ["csv_generator.py", "10000", os.getcwd()],
-             ["csv_generator.py", "2", os.getcwd()],
-             ["csv_generator.py", "9999", os.getcwd()],
-             ["csv_generator.py", "1000", "123"],
-             ["csv_generator.py", "1.2", os.getcwd()],
-             ["csv_generator.py", "abc", os.getcwd()],
-             ["csv_generator.py", "20", os.getcwd()]]
+    cwd = os.getcwd()
+    argvs = [[run_file, "1", cwd],
+             [run_file, "10000", cwd],
+             [run_file, "2", cwd],
+             [run_file, "9999", cwd],
+             [run_file, "1000", "123"],
+             [run_file, "1.2", cwd],
+             [run_file, "abc", cwd],
+             [run_file, "20", cwd]]
 
     print("Start {} test(s): \n".format(len(argvs)))
     for i in range(len(argvs)):

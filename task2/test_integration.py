@@ -1,4 +1,4 @@
-import subprocess, sys, pymongo
+import subprocess, sys, pymongo, os
 
 
 def check_output(output, argv):
@@ -45,6 +45,11 @@ if __name__ == "__main__":
 
     run_file = "csv_to_mongodb.py"
     cwd = "../task1/genesys.csv"
+
+    if not os.isfile(cwd):
+        print("Fail: No csv File in Task1 Folder")
+        sys.exit(1)
+
     url = sys.argv[1]
     argvs = [[run_file, cwd, "asd"],
              [run_file, "123", url],

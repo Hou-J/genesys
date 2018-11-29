@@ -62,17 +62,17 @@ if __name__ == "__main__":
     # define file name and header
     file_name = 'genesys.csv'
     file_path = os.path.join(file_dir, file_name)
-    headers = ['firstName', 'lastName', 'age']
+    header = ['firstName', 'lastName', 'age']
 
     # Start generate csv
     print("Start generating {} lines csv file \"{}\" at the path \"{}\".".format(line_num, file_name, file_dir))
 
     names = name_generator(line_num)
     ages = age_generator(line_num)
-    df = pd.DataFrame({headers[0]: [n.split()[0] for n in names],
-                       headers[1]: [n.split()[1] for n in names],
-                       headers[2]: [a for a in ages]})
-    df = df.reindex(columns=headers)
+    df = pd.DataFrame({header[0]: [n.split()[0] for n in names],
+                       header[1]: [n.split()[1] for n in names],
+                       header[2]: [a for a in ages]})
+    df = df.reindex(columns=header)
     df.to_csv(file_path, sep=',', header=True, index=False)
 
     print("Done generating file \"{}\".".format(file_path))
