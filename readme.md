@@ -1,5 +1,15 @@
 # CSV Generator
-Generate a csv file of up to 10000 people's full name and age and save the data into MongoDB.
+The problem
+
+There is CSV file available locally on file system which contains information about customers. File looks like this (and has header):
+
+firstName,lastName,age
+John,Wayne,40
+Clint,Eastwood,50
+
+File above has only header and two lines. But imagine that file can contain tens of thousands of lines.
+
+In short, generate a csv file of up to 10000 people's full name and age and save the data into MongoDB.
 
 ## TASK 1
 ### Instructions
